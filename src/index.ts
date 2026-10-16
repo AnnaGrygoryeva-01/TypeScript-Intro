@@ -1,9 +1,38 @@
-console.log('Hi TS')
-const userName: string = 'Anna'
-console.log(userName)
+// const userName: string = 'Anna'
+// console.log(userName)
 
-const age: number = 25
-console.log(age)
+// const age: number = 25
 
-const isHappy: boolean = true
-console.log('isHappy :>> ', isHappy)
+// console.log(age)
+
+// const isHappy: boolean = true
+// console.log('isHappy :>> ', isHappy)
+
+// console.log(`${userName} ${age}`)
+
+// for (let m = 1; m < 11; m++) {
+//   if (m % 2 === 0) console.log(`Number of the for loop: ${m}`)
+// }
+
+// for (let i = 1; i > -11; i--) {
+//   console.log(`Number of the for loop: ${i}`)
+// }
+
+// -----------------
+const form = document.querySelector('#factorial-form') as HTMLFormElement
+const steps = document.querySelector('#factorial-steps') as HTMLOListElement
+
+form.addEventListener('submit', e => {
+  e.preventDefault()
+  steps.textContent = ''
+
+  const numberInput = document.querySelector('#number') as HTMLInputElement
+  const number: number = Number(numberInput.value)
+  let factorial: number = 1
+  for (let i = 1; i <= number; i++) {
+    factorial *= i
+    const listItem: HTMLLIElement = document.createElement('li')
+    listItem.textContent = `${factorial}`
+    steps.appendChild(listItem)
+  }
+})
